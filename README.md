@@ -30,7 +30,7 @@ nano /etc/logrotate.d/certbot
     create 640 root adm
 }
 ```
-Création des key pour API OVH aves ces privilèges: sur https://api.ovh.com/createToken/
+Création des key pour API OVH avec ces privilèges: sur https://api.ovh.com/createToken/
 ```
 GET /domain/zone/*
 PUT  /domain/zone/* 
