@@ -98,8 +98,8 @@ nano /usr/local/sbin/copyCerts.sh
 #!/bin/bash
 
 
-cp /etc/letsencrypt/live/fredarro.ovh/fullchain.pem default.crt
-cp /etc/letsencrypt/live/fredarro.ovh/privkey.pem default.key
+cp /etc/letsencrypt/live/fredarro.ovh/fullchain.pem /opt/zoraxy/src/conf/certs/default.crt
+cp /etc/letsencrypt/live/fredarro.ovh/privkey.pem /opt/zoraxy/src/conf/certs/default.key
 ```
 
 reste à faire le INCRON pour lancer ``/usr/local/sbin/copyCerts.s`` lors du changement de Cert
