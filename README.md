@@ -8,16 +8,13 @@ A partir du script qui permet la création du LXC sur Proxmox:
 Mise a jour des paquets plus install de Certbot avec plugin pour OVH
 ```
 apt update && apt upgrade
-apt install python3-pip
-pip3 install certbot
-pip3 install certbot-dns-ovh
+apt install certbot python3-certbot-dns-ovh -y
 ```
 On place  un nouveau fichier de config ``/etc/logrotate.d/certbot`` avec le contenu suivant :
 ```
 nano /etc/logrotate.d/certbot
 
 ```
-
 
 ```
 /var/log/letsencrypt/*.log {
@@ -58,36 +55,14 @@ certbot certonly --dns-ovh --dns-ovh-credentials ~/.ovhapi --non-interactive --a
 
 ```
 
-Commande de renouvelement:
+Commande de renouvelementautomatique:
 ```
-nano /usr/local/sbin/renewCerts.sh
-```
+certbot renew --dry-run```
 
 ```                                                                          
-#!/bin/bash
-
-certbot renew --cert-name fredarro.ovh
-```
-
-Propriétées du fichier adaptée
-```
-chmod +x /usr/local/sbin/renewCerts.sh
-```
 
 
-mise en place du cron
-```
-nano /etc/crontab
-```
 
-Ajout de la ligne:
-```
-0 0 1 * * /usr/local/sbin/renewCerts.sh > /dev/null 2>&1
-```
-relance du service cron
-```
-sudo systemctl restart cron
-```
 
 commande copy du certificat vers répertoire Zoraxy:
 ```
