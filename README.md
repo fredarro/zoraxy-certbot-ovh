@@ -69,11 +69,12 @@ ln -s /etc/letsencrypt/live/fredarro.ovh/privkey.pem /opt/zoraxy/src/conf/certs/
 ```
 
 
-Nous verrons ci-dessous comment installer ZORAXY directement sur une machine virtuel linux (ubuntu 22.04 LTS) avec la configuration et l'utilisation de systemD pour lancer/arreterle service zoraxy
+Nous verrons ci-dessous comment installer ZORAXY directement sur une machine virtuel linux (ubuntu 22.04 LTS) avec la configuration et l'utilisation de systemD pour lancer/arreter le service zoraxy
 
 Sur une ubuntu 22/04 LTS fraichement installer installer GO (il faut une version minimum go 1.20)
 Installation de GO :
 
+1er méthode:
 ```
 1. sudo apt-get update
 2. wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
@@ -84,6 +85,14 @@ Installation de GO :
 7. export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 8. source ~/.profile
 ```
+
+2eme méthode:
+```
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+sudo apt install golang-go
+```
+
 Vérifier la version de Go installer: (résultat attendu -> go version go1.21.6 linux/amd64)
 ```
 go version
@@ -95,8 +104,23 @@ git clone https://github.com/tobychui/zoraxy
 cd ./zoraxy/src/
 go mod tidy
 go build
+```
 
-sudo ./zoraxy -port=:8000
+Lors du lancement de zoraxy des paramètres peuvent être ajouter:
+fastgeoip (true / false)
+Permet d'utiliser plus de ram pour GEO-IP_localisation, par default = False, pour l'activer utiliser -fastgeoip=true
+
+noauth (true / false)
+Si vous souhaiter accedé a zoraxy sans authentification ajouter le paramètre -noauth=true.
+ATTENTION c'est un risque de sécurité si jamais vous n'avez pas d'outils pour l'authentification lors de l'accès a zoraxy
+
+sshlb (true / false)
+Permet de se connecter en ssh grace à l'interface loopback du serveur depuis l'interface d'administration de zoraxy sur un host.
+Pour activer cette option il faut ajouter -sshlb=true
+
+Lancez zoraxy avec la commande suivante: (dans l'exemple nous activons le fast-GEO-IP et l'accès SSH:
+```
+sudo ./zoraxy -port=:8000 -fastgeoip=true -sshlb=true
 ```
 
 Une fois lancer vous devriez pouvoir avoir accès a Zoraxy en allant sur: 
@@ -104,7 +128,7 @@ Une fois lancer vous devriez pouvoir avoir accès a Zoraxy en allant sur:
 http://IP_DE_VOTRE_MACHINE:8000
 ```
 
-Si tel et le cas tous est bien installer, fait un CTRL+C pour arreter le service.
+Si tel et le cas tous est bien installer, faite un CTRL+C pour arreter le service.
 
 récupéré le chemin ou se trouve le binaire zoraxy en faisant: (A retenir pour utiliser le chemin dans le fichier zoraxy.service ci-dessous)
 ```
