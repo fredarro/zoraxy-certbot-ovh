@@ -165,7 +165,7 @@ User=root
 Group=root
 
 WorkingDirectory=RESULTAT_DE_LA_COMMANDE_PWD_FAIT_AU_DESSUS
-ExecStart=RESULTAT_DE_LA_COMMANDE_PWD_FAIT_AU_DESSUS/zoraxy -port=:8000 -fastgeoip=true -sshlb=tru
+ExecStart=RESULTAT_DE_LA_COMMANDE_PWD_FAIT_AU_DESSUS/zoraxy -port=:8000 -fastgeoip=true -sshlb=true
 Restart=on-failure
 RestartSec=10
 
