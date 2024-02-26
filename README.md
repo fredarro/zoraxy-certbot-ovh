@@ -169,8 +169,8 @@ ExecStart=RESULTAT_DE_LA_COMMANDE_PWD_FAIT_AU_DESSUS/zoraxy -port=:8000 -fastgeo
 Restart=on-failure
 RestartSec=10
 
-StandardOutput=syslog
-StandardError=syslog
+StandardOutput=journal
+StandardError=journal
 SyslogIdentifier=zoraxy
 
 [Install]
