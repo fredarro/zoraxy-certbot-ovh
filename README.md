@@ -165,7 +165,7 @@ User=root
 Group=root
 
 WorkingDirectory=RESULTAT_DE_LA_COMMANDE_PWD_FAIT_AU_DESSUS
-ExecStart=RESULTAT_DE_LA_COMMANDE_PWD_FAIT_AU_DESSUS/zoraxy -port=:8000 -fastgeoip
+ExecStart=RESULTAT_DE_LA_COMMANDE_PWD_FAIT_AU_DESSUS/zoraxy -port=:8000 -fastgeoip=true -sshlb=tru
 Restart=on-failure
 RestartSec=10
 
@@ -176,17 +176,15 @@ SyslogIdentifier=zoraxy
 [Install]
 WantedBy=multi-user.target
 
-[Install]
-WantedBy=multi-user.target
 ```
 
-Enregistrer le fichier en faisant "CTRL + X" puis "Y3 ou "O"
+Enregistrer le fichier en faisant "CTRL + X" puis "Y" ou "O"
 
 Nous allons maintenant faire un reload du daemon systemD et démarrer zoraxy:
 ```
 1. systemctl daemon-reload
-2. systemctl zoraxy start
-3. systemctl zoraxy status
+2. systemctl start zoraxy
+3. systemctl status zoraxy
 ```
 
 le resultat de la dernière commande devrais etre :
