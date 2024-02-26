@@ -207,7 +207,7 @@ systemctl enable zoraxy
 
 Redemarrer votre machine linux, et verifier après redemarrage que le service Zoraxy est bien demarrer:
 ```
-service zoraxy status
+systemctl status zoraxy
 ```
 
 Après redémarrage, le service zoraxy devrait être démarrer ! 
