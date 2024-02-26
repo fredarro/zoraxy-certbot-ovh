@@ -107,14 +107,18 @@ go build
 ```
 
 Lors du lancement de zoraxy des paramètres peuvent être ajouter:
+
 fastgeoip (true / false)
+
 Permet d'utiliser plus de ram pour GEO-IP_localisation, par default = False, pour l'activer utiliser -fastgeoip=true
 
 noauth (true / false)
+
 Si vous souhaiter accedé a zoraxy sans authentification ajouter le paramètre -noauth=true.
 ATTENTION c'est un risque de sécurité si jamais vous n'avez pas d'outils pour l'authentification lors de l'accès a zoraxy
 
 sshlb (true / false)
+
 Permet de se connecter en ssh grace à l'interface loopback du serveur depuis l'interface d'administration de zoraxy sur un host.
 Pour activer cette option il faut ajouter -sshlb=true
 
