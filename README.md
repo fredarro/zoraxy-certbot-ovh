@@ -51,7 +51,7 @@ chmod 600 /root/.ovhapi
 
 Génération du premier certificat:
 ```
-certbot certonly --dns-ovh --dns-ovh-credentials ~/.ovhapi --non-interactive --agree-tos --email fred33430@gmail.fr -d fredarro.ovh -d *.fredarro.ovh
+certbot certonly --dns-ovh --dns-ovh-credentials ~/.ovhapi --non-interactive --agree-tos --email fred33430@gmail.com -d fredarro.ovh -d *.fredarro.ovh
 
 ```
 
