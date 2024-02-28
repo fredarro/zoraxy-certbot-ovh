@@ -64,7 +64,7 @@ certbot renew --dry-run
 
 Création des liens symbolique vers le répertoire Zoraxy avec le bon nom:
 ```
-ln -s /etc/letsencrypt/live/fredarro.ovh/fullchain.pem /opt/zoraxy/src/conf/certs/default.crt
+ln -s /etc/letsencrypt/live/fredarro.ovh/fullchain.pem /opt/zoraxy/src/conf/certs/fredarro.ovh.pem
 ln -s /etc/letsencrypt/live/fredarro.ovh/privkey.pem /opt/zoraxy/src/conf/certs/default.key
 ```
 
